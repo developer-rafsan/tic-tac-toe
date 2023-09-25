@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tic tac toe game proce</title>
+
+    <!-- css link up -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+ 
+
+    <div id="game-over-sec" class="game-over-sec">
+        <div style="text-align: center;">
+            <h1 class="win-result"></h1>
+            <img id="win-svg" src="winners.svg" alt=""> 
+            <h3 style="cursor: pointer" class="over-game">over game</h3>
+            <button style="margin-top: 30px; cursor: pointer;" class="close">close</button>
+        </div>
+    </div>
+    
+    <div class="game-contenar">
+        <h1 id="tranNext">tran for 0</h1>
+        <div class="contenar">
+            <div class="box-item bl-0 bt-0"><span class="box-text"></span></div>
+            <div class="box-item bt-0"><span class="box-text"></span></div>
+            <div class="box-item bt-0 br-0"><span class="box-text"></span></div>
+            <div class="box-item bl-0"><span class="box-text"></span></div>
+            <div class="box-item"><span class="box-text"></span></div>
+            <div class="box-item br-0"><span class="box-text"></span></div>
+            <div class="box-item bl-0 bb-0"><span class="box-text"></span></div>
+            <div class="box-item bb-0"><span class="box-text"></span></div>
+            <div class="box-item bb-0 br-0"><span class="box-text"></span></div>
+        </div>
+    </div>
+
+
+    <!-- script js link -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
