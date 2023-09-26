@@ -1,28 +1,25 @@
-const boxItem = document.querySelectorAll('.box-item');
-const boxText = document.querySelectorAll('.box-text');
-const gameOver = document.getElementById('game-over-sec');
-const winResult = document.querySelector('.win-result');
-const winImg = document.getElementById('win-svg');
+const itemAll = document.querySelectorAll('.item');
+const backSideAll = document.querySelectorAll('.back-side');
+
+// sound system
+const popSound = new Audio ('music/pop-sound.mp3')
+const winSound = new Audio ('music/win-sound.mp3')
+const gameSound = new Audio ('music/game-sound.mp3')
+const lossSound = new Audio ('music/loss.mp3')
+
+// gameSound.play();
+gameSound.volume = 0.4;
+
+let tran = '0';
 
 
-// music system
-const popSound = new Audio ("music/pop-sound.mp3")
-const winSound = new Audio ("music/win-sound.mp3")
-const bgSound = new Audio ("music/game-sound.mp3")
-
-bgSound.play();
-bgSound.loop = true;
-bgSound.volume = 0.5;
-
-let tran = "X";
-
-// change tran
-const changeTran = ()=>{
-    return tran === "X" ? "0" : "X"
+// tran change
+const tranChange = () => {
+    return tran === '0' ? 'X' : '0'
 }
 
-// wining logic
-const winingLogic = ()=>{
+
+const winLogic = () => {
     const winCondetion = [
         [0,1,2],
         [3,4,5],
@@ -34,36 +31,46 @@ const winingLogic = ()=>{
         [2,4,6],
     ]
 
-    winCondetion.forEach(e =>{
-        if((boxText[e[0]].innerHTML === boxText[e[1]].innerHTML) && (boxText[e[1]].innerHTML === boxText[e[2]].innerHTML) && (boxText[e[0]].innerHTML !== "")){
-            gameOver.style.visibility = "visible";
-            gameOver.style.height = "100%";
-            winImg.style.width = "300px";
-            winResult.innerHTML =` win - ${boxText[e[0]].innerHTML}`;
-            winSound.play()
+    winCondetion.forEach(e => {
+        if( (backSideAll[e[0]].innerText === backSideAll[e[1]].innerText) && (backSideAll[e[1]].innerText === backSideAll[e[2]].innerText) && (backSideAll[e[0]].innerText !== "") ) {
+            document.querySelector('.game-over').style.height = "100vh";
+            document.querySelector('.game-over').style.visibility = "visible";
+            document.querySelector('.isWin').innerHTML = `Win Result - ${backSideAll[e[0]].innerText}`;
+            winSound.play();
         }
     })
-    
+
+   
 }
 
-// Game logic
-boxItem.forEach(ele =>{
-    ele.addEventListener(
-        "click",
-        ()=>{
-            if(ele.querySelector(".box-text").innerHTML === ""){
-                tran = changeTran();
-                ele.querySelector('.box-text').innerHTML = tran;
-                winingLogic();
-                document.getElementById('tranNext').innerHTML = `tran for ${tran === "X" ? "0" : "X"}`;
-                popSound.play();
-            }
+
+
+// click and flip card
+itemAll.forEach(ele => {
+    ele.addEventListener('click',()=>{
+        if(!ele.querySelector('.back-side').innerText){
+            popSound.play();
+            tran = tranChange();
+            document.querySelector(".titel").innerText = `Next Tran - ${tran === "X" ? "0" : "X"}`
+            ele.querySelector('.back-side').innerHTML = tran;
+            ele.querySelector('.inner-item').style.transform = "rotateY(180deg)";
+            winLogic();
         }
-    )
+
+        if((backSideAll[0].innerText !== "") && (backSideAll[1].innerText !== "") && (backSideAll[3].innerText !== "") && (backSideAll[4].innerText !== "") && (backSideAll[5].innerText !== "") && (backSideAll[6].innerText !== "") && (backSideAll[7].innerText !== "") && (backSideAll[8].innerText !== "")){
+            document.querySelector('.game-over').style.height = "100vh";
+            document.querySelector('.game-over').style.visibility = "visible";
+            document.querySelector('.isWin').innerHTML = `Win Result loss`;
+            document.querySelector("#sbgimg").src = "loss.svg";
+            lossSound.play();
+        }  
+    })
 })
 
-// new game
-const close = document.querySelector('.close');
-close.addEventListener('click',()=>{
+
+
+// close funtion
+const closeButton = document.getElementById('closeButton');
+closeButton.addEventListener('click',()=>{
     location.reload();
 })

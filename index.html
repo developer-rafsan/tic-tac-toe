@@ -3,42 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tic tac toe game proce</title>
+    <title>Tic Tac Toc Game</title>
 
-    <!-- css link up -->
+    <!-- css style link -->
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
-
- 
-
-    <div id="game-over-sec" class="game-over-sec">
-        <div style="text-align: center;">
-            <h1 class="win-result"></h1>
-            <img id="win-svg" src="winners.svg" alt=""> 
-            <h3 style="cursor: pointer" class="over-game">over game</h3>
-            <button style="margin-top: 30px; cursor: pointer;" class="close">close</button>
-        </div>
-    </div>
     
-    <div class="game-contenar">
-        <h1 id="tranNext">tran for 0</h1>
-        <div class="contenar">
-            <div class="box-item bl-0 bt-0"><span class="box-text"></span></div>
-            <div class="box-item bt-0"><span class="box-text"></span></div>
-            <div class="box-item bt-0 br-0"><span class="box-text"></span></div>
-            <div class="box-item bl-0"><span class="box-text"></span></div>
-            <div class="box-item"><span class="box-text"></span></div>
-            <div class="box-item br-0"><span class="box-text"></span></div>
-            <div class="box-item bl-0 bb-0"><span class="box-text"></span></div>
-            <div class="box-item bb-0"><span class="box-text"></span></div>
-            <div class="box-item bb-0 br-0"><span class="box-text"></span></div>
+    <div class="game-over">
+        <div class="isWin"></div>
+        <img id="sbgimg" src="winners.svg" alt="" srcset="">
+        <div class="tagline">game over</div>
+        <button id="closeButton">close</button>
+    </div>
+
+    <div class="geme-contenar">
+        <div class="titel">Next Tran - X</div>
+        <div class="game-content">
+
+
+            <div class="item">
+                <div class="inner-item">
+                    <div class="front-side"></div>
+                    <div class="back-side"></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="inner-item">
+                    <div class="front-side"></div>
+                    <div class="back-side"></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="inner-item">
+                    <div class="front-side"></div>
+                    <div class="back-side"></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="inner-item">
+                    <div class="front-side"></div>
+                    <div class="back-side"></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="inner-item">
+                    <div class="front-side"></div>
+                    <div class="back-side"></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="inner-item">
+                    <div class="front-side"></div>
+                    <div class="back-side"></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="inner-item">
+                    <div class="front-side"></div>
+                    <div class="back-side"></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="inner-item">
+                    <div class="front-side"></div>
+                    <div class="back-side"></div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="inner-item">
+                    <div class="front-side"></div>
+                    <div class="back-side"></div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 
 
-    <!-- script js link -->
+
+
+
+
+
+
+
+    <!-- js link up -->
     <script type="module" src="app.js"></script>
 </body>
 </html>

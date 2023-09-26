@@ -1,109 +1,141 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
-:root
-{
-    --bgColor : #eeeeee;
-    --font : 'Montserrat', sans-serif; 
-}
+@import url('https://fonts.googleapis.com/css2?family=Croissant+One&family=Montserrat&display=swap');
 
 *{margin: 0%;padding: 0%;box-sizing: border-box;}
 
-body{
+.geme-contenar
+{
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
-    position: relative;
-    user-select: none;
-}
-
-
-.game-over-sec
-{
-    position: absolute;
-    height: 0%;
-    width: 100%;
+    background-image: linear-gradient(160deg,rgb(144, 102, 223),rgb(94, 79, 226));
     display: flex;
-    visibility: hidden;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
-    font-family: var(--font);
-    text-transform: capitalize;
-    transition: .8s;
-    background-color: #3a55c246;
-    backdrop-filter: blur(15px);
-    color: #bbff00;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.514);
-}
-
-.game-contenar
-{
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(160deg,#3a55c2, #616cd2);
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
-#win-svg{
-    width: 0px; 
-    transition: 1.5s;
-}
-
-.contenar
+.geme-contenar .titel
 {
-    height: 300px;
+    font-size: 2rem;
+    padding: 10px 20px;
+    background-color: brown;
+    color: aliceblue;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.game-content
+{
     width: 300px;
+    height: 300px;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns:  1fr 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    gap: 5px;
 }
 
-.box-item
+.game-content .item 
 {
     cursor: pointer;
-    background-color: #eeebeb;
-    border-radius: 10px;
-    box-shadow: 2px 2px 5px beige;
-}
-
-.box-item:hover
-{
-    box-shadow: inset 3px 3px 3px rgb(178, 175, 175);
-}
-
-.box-item .box-text
-{
-    font-size: 4vw;
     width: 100%;
     height: 100%;
-    font-family: var(--font);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.close 
+.item .inner-item 
 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .8s;
+}
+
+.item .inner-item .front-side,
+.item .inner-item .back-side
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+
+.item .inner-item .front-side
+{
+    background-color: rgb(255, 255, 255);
+}
+
+.item .inner-item .back-side
+{
+    background-color: rgb(255, 255, 255);
+    transform: rotateY(180deg);
+    font-size: 5rem;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-over 
+{
+    height: 0vh;
+    width: 100vw;
+    visibility: hidden;
+    position: absolute;
+    top: 0%;
+    background-color: transparent;
+    backdrop-filter: blur(15px);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: .8s;
+}
+
+.game-over img 
+{
+    width: 300px;
+}
+
+.game-over .tagline
+{
+    font-size: 3rem;
+    color: rgb(225, 255, 52);
+    margin-top: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.397);
+    text-transform: uppercase;
+    font-family: 'Croissant One', cursive;
+}
+
+.game-over #closeButton
+{
+    padding: 10px 20px;
     font-size: 1rem;
-    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
     outline: none;
     border: none;
-    border-radius: 5px;
-    text-transform: uppercase;
+    text-transform: capitalize;
+    cursor: pointer;
 }
 
-#tranNext
+.isWin
 {
-    font-family: var(--font);
-    padding: 10px 40px;
-    border-radius: 10px;
+    font-size: 2rem;
+    color: rgb(225, 255, 52);
+    margin-top: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.397);
     text-transform: capitalize;
-    font-size: 1.5rem;
-    background-color: #eeebeb;
-    color: #000000;
-    margin-bottom: 20px;
+    font-family: 'Croissant One', cursive;   
+}
+
+.titel
+{
+    font-size: 2rem;
+    color: rgb(225, 255, 52);
+    margin-top: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.397);
+    text-transform: capitalize;
+    font-family: 'Croissant One', cursive;  
 }
