@@ -7,7 +7,7 @@ const winSound = new Audio ('music/win-sound.mp3')
 const gameSound = new Audio ('music/game-sound.mp3')
 const lossSound = new Audio ('music/loss.mp3')
 
-// gameSound.play();
+gameSound.play();
 gameSound.volume = 0.4;
 
 let tran = '0';
